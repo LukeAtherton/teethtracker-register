@@ -1,0 +1,1 @@
+c:\users\luke\documents\visual studio 11\Projects\teethtracker-register\teethtracker-register\bin\Release\teethtracker-register.exe.config

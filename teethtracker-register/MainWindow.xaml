@@ -1,0 +1,81 @@
+﻿<Window x:Class="teethtracker_register.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Teeth Register" Height="600" Width="800"
+        Icon="/images/teeth.png" 
+        Style="{StaticResource DarkStyle}"
+    >
+
+    <DockPanel>
+        <Border DockPanel.Dock="bottom" 
+                CornerRadius="0,0,5,5" 
+                BorderThickness="0,1,0,0" 
+                BorderBrush="{StaticResource BorderBrush}" 
+                Background="{StaticResource StatusBackgoundBrush}">
+            <StatusBar Height="28" Background="Transparent">
+                <StatusBarItem>
+                    <TextBlock Margin="7,0,0,0" Foreground="{StaticResource TabTextBrush}"></TextBlock>
+                </StatusBarItem>
+            </StatusBar>
+        </Border >
+        <Grid Height="551" VerticalAlignment="Top" Width="779">
+            <DataGrid ColumnWidth="*" 
+                      CanUserAddRows="false" 
+                      AutoGenerateColumns="True" 
+                      x:Name="dataGrid" 
+                      HorizontalAlignment="Left" 
+                      Margin="160,25,0,0" 
+                      VerticalAlignment="Top" 
+                      Height="315" Width="609" 
+                      ItemsSource="{Binding Path=.}" 
+                      Style="{StaticResource DarkGrid}">
+                <DataGrid.Resources>
+                    <Style TargetType="{x:Type DataGridColumnHeader}">
+                        <Setter Property="Background" Value="#333333" />
+                        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                        <Setter Property="VerticalContentAlignment" Value="Center"/>
+                        <Setter Property="FontSize" Value="12" />
+                    </Style>
+                    <Style TargetType="{x:Type DataGridRowHeader}">
+                        <Setter Property="Background" Value="#333333" />
+                    </Style>
+                </DataGrid.Resources>
+            </DataGrid>
+            
+            <Button x:Name="btnSearch" 
+                    Content="Search" 
+                    HorizontalAlignment="Left" 
+                    Margin="10,25,0,0" 
+                    VerticalAlignment="Top"
+                    Width="140" 
+                    Height="30"
+                    Click="Button_Click_Search"
+                    Style="{StaticResource RoundedButton}"/>
+            
+            <Button x:Name="btnClear" 
+                    Content="Clear" 
+                    HorizontalAlignment="Left" 
+                    Margin="10,71,0,0" 
+                    VerticalAlignment="Top" 
+                    Width="140" 
+                    Height="30"
+                    Click="Button_Click_Clear"
+                    Style="{StaticResource RoundedButton}"/>
+            
+            <TreeView x:Name="nodeTree" 
+                      HorizontalAlignment="Left" 
+                      Height="206" 
+                      Margin="160,345,0,0" 
+                      VerticalAlignment="Top" 
+                      Width="609"
+                      Background="#333333"
+                      BorderBrush="#222222"/>
+            
+            <Button Style="{StaticResource RoundedButton}" x:Name="btnRefresh" Content="Refresh" HorizontalAlignment="Left" Margin="10,345,0,0" VerticalAlignment="Top" 
+                    Width="140" 
+                    Height="30"
+                    Click="btnRefresh_Click"/>
+        </Grid>
+    </DockPanel>
+</Window>
+
